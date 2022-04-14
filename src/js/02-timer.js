@@ -24,7 +24,7 @@ const options = {
   onClose(selectedDates) {
    
     //   console.log(selectedDates[0] - options.defaultDate.getTime() );
-    if (selectedDates[0] < Date.now()) {
+    if (selectedDates[0] < Date.now) {
       alert("Please choose a date in the future");
     } else { buttonStartEl.disabled = false; }
    

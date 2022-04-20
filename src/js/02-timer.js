@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const dataTimeInputEl = document.querySelector('#datetime-picker');
 const daysValueSpanEl = document.querySelector('span[data-days]');
@@ -24,8 +25,9 @@ const options = {
   onClose(selectedDates) {
    
     //   console.log(selectedDates[0] - options.defaultDate.getTime() );
-    if (selectedDates[0] < Date.now) {
-      alert("Please choose a date in the future");
+    // selectedDates[0] < options.defaultDate
+    if (selectedDates[0] < Date.now()) {
+      Notify.failure('Please choose a date in the future');
     } else { buttonStartEl.disabled = false; }
    
   },
